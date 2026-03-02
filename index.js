@@ -2,6 +2,7 @@
 const arg = require('arg');
 const fs = require('node:fs')
 const path = require('node:path')
+const chore = require('./experiment')
 const readline = require('node:readline')
 
 
@@ -16,6 +17,7 @@ const args = arg({
 	'--remb': String,
 	'--hate': String,
 	'--GMYP': Boolean,
+	'--lkup': Boolean,
 	'--h': '--huh'
 });
 
@@ -48,7 +50,7 @@ if (args['--patt']) {
 				fs.writeFileSync(storage, JSON.stringify(d))
 
 			}
-			else { console.log("Someone has dementia already. . .") }
+			else { console.log("Someone has dementia already. . . WAIT NO!") }
 
 		}
 	}
@@ -105,4 +107,9 @@ if (args['--GMYP']) {
 	console.log(`GEE! Ever heard of , i dunno, PRIVACY??`)
 	console.dir(d)
 
+}
+
+if (args['--lkup']) {
+	console.log("You're lucky I remember your favorite news stations \n")
+	require(path.resolve("./experiment.js"))
 }
