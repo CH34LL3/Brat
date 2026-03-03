@@ -2,7 +2,6 @@
 const arg = require('arg');
 const fs = require('node:fs')
 const path = require('node:path')
-const chore = require('./experiment')
 const readline = require('node:readline')
 
 
@@ -105,11 +104,11 @@ if (args['--GMYP']) {
 	const storage = path.join(__dirname, 'storage.json')
 	const d = JSON.parse(fs.readFileSync(storage, 'utf8'))
 	console.log(`GEE! Ever heard of , i dunno, PRIVACY??`)
-	console.dir(d)
+	console.log(d)
 
 }
 
 if (args['--lkup']) {
 	console.log("You're lucky I remember your favorite news stations \n")
-	require(path.resolve("./experiment.js"))
+	require(path.resolve("./cli/experiment.js"))
 }
